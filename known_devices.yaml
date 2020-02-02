@@ -11,11 +11,3 @@ maggie_pixel3:
   mac: !secret phone_maggie_mac
   name: Maggie's Pixel 3a
   track: true
-
-nas:
-  hide_if_away: false
-  icon:
-  mac:
-  name: nas
-  picture:
-  track: true

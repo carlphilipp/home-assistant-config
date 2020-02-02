@@ -60,21 +60,38 @@ binary_sensor:
   - platform: ping
     name: Nas LS420D
     host: !secret ip_nas
+    count: 2
+    scan_interval: 30
   - platform: ping
     name: Raspberry Pi - Pi-hole
     host: !secret ip_raspberry_pi_pihole
+    count: 2
+    scan_interval: 30
   - platform: ping
     name: Raspberry Pi - PiVPN
     host: !secret ip_raspberry_pi_pivpn
+    count: 2
+    scan_interval: 30
   - platform: ping
     name: Roku
     host: !secret ip_roku
+    count: 2
+    scan_interval: 30
   - platform: ping
     name: Google Home
     host: !secret ip_google_home
+    count: 2
+    scan_interval: 30
   - platform: ping
     name: Chromecast
     host: !secret ip_chromecast
+    count: 2
+    scan_interval: 30
+  - platform: ping
+    name: Dyson fan
+    host: !secret ip_dyson
+    count: 2
+    scan_interval: 30
 
 frontend:
   themes: !include_dir_merge_named themes/

@@ -62,6 +62,7 @@ views:
           - entity: binary_sensor.roku
           - entity: binary_sensor.chromecast
           - entity: binary_sensor.google_home
+          - entity: binary_sensor.dyson_fan
 
   - icon: mdi:settings
     cards:

@@ -36,3 +36,5 @@ binary_sensor.chromecast:
   icon: mdi:cast
 binary_sensor.roku:
   icon: mdi:cast
+binary_sensor.dyson_fan:
+  icon: mdi:fan
