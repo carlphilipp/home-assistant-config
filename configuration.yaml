@@ -1,0 +1,101 @@
+homeassistant:
+  customize: !include customize.yaml
+  name: Home
+  latitude: !secret latitude
+  longitude: !secret longitude
+  unit_system: imperial
+  time_zone: America/Chicago
+
+device_tracker:
+  - platform: ping
+    hosts:
+      carl_pixel2: !secret ip_pixel2xl
+      maggie_pixel3: !secret ip_pixel3a
+
+tuya:
+  username: !secret tuya_username
+  password: !secret tuya_password
+  country_code: 1
+  platform: tuya
+
+pi_hole:
+  - host: !secret ip_raspberry_pi_pihole
+    name: 'Main Pi Hole'
+
+dyson:
+  username: !secret dyson_username
+  password: !secret dyson_password
+  language: US
+  devices:
+    - device_id: !secret dyson_device_id
+      device_ip: !secret ip_dyson
+
+roku:
+  - host: !secret ip_roku
+
+lovelace:
+  mode: yaml
+
+camera:
+  - platform: generic
+    still_image_url: https://s.w-x.co/staticmaps/wu/wu/wxtype1200_cur/usspi/current.png
+    name: Radar IL Current
+
+sensor:
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'date'
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /
+      - type: processor_use
+      - type: last_boot
+      - type: memory_use_percent
+      - type: swap_free
+      - type: swap_use_percent
+
+binary_sensor:
+  - platform: ping
+    name: Nas LS420D
+    host: !secret ip_nas
+  - platform: ping
+    name: Raspberry Pi - Pi-hole
+    host: !secret ip_raspberry_pi_pihole
+  - platform: ping
+    name: Raspberry Pi - PiVPN
+    host: !secret ip_raspberry_pi_pivpn
+  - platform: ping
+    name: Roku
+    host: !secret ip_roku
+  - platform: ping
+    name: Google Home
+    host: !secret ip_google_home
+  - platform: ping
+    name: Chromecast
+    host: !secret ip_chromecast
+
+frontend:
+  themes: !include_dir_merge_named themes/
+  
+weather:
+  - platform: darksky
+    api_key: !secret darksky_api_key
+    mode: hourly
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml

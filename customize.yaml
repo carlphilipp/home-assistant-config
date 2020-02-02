@@ -1,0 +1,38 @@
+person.carl:
+  entity_picture: /local/carl.jpg
+person.maggie:
+  entity_picture: /local/maggie.jpg
+
+media_player.roku_yf00ec953393:
+  friendly_name: Roku
+
+fan.master_bedroom:
+  friendly_name: Master Bedroom fan
+
+sensor.master_bedroom_aqi:
+  friendly_name: Master Bedroom AQI (Air Quality Index)
+sensor.master_bedroom_dust:
+  friendly_name: Master Bedroom dust
+sensor.master_bedroom_filter_life:
+  friendly_name: Master Bedroom fan filter life
+sensor.master_bedroom_humidity:
+  friendly_name: Master Bedroom humidity
+sensor.master_bedroom_temperature:
+  friendly_name: Master Bedroom temperature
+sensor.main_pi_hole_ads_percentage_blocked_today:
+  friendly_name: Ads Percentage Blocked Today
+sensor.main_pi_hole_ads_blocked_today:
+  friendly_name: Ads Blocked Today
+  
+binary_sensor.nas_ls420d:
+  icon: mdi:nas
+binary_sensor.raspberry_pi_pi_hole:
+  icon: mdi:raspberry-pi
+binary_sensor.raspberry_pi_pivpn:
+  icon: mdi:raspberry-pi
+binary_sensor.google_home:
+  icon: mdi:google-home
+binary_sensor.chromecast:
+  icon: mdi:cast
+binary_sensor.roku:
+  icon: mdi:cast
