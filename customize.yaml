@@ -24,6 +24,14 @@ sensor.main_pi_hole_ads_percentage_blocked_today:
 sensor.main_pi_hole_ads_blocked_today:
   friendly_name: Ads Blocked Today
   
+device_tracker.bose_mini_soundlink:
+  source_type: bluetooth
+device_tracker.forerunner_235:
+  source_type: bluetooth
+  
+sensor.bose_mini_online:
+  icon: mdi:speaker-bluetooth
+  
 binary_sensor.nas_ls420d:
   icon: mdi:nas
 binary_sensor.raspberry_pi_pi_hole:

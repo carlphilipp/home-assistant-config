@@ -1,0 +1,5 @@
+all_lights:
+  name: All lights
+  entities:
+    - light.hue_ambiance_lamp_1
+    - switch.02200059ecfabc849dc9

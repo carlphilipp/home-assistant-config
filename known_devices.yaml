@@ -4,6 +4,14 @@ carl_pixel2:
   mac: !secret phone_carl_mac
   name: Carl's Pixel XL2
   track: true
+  
+carl_pixel2_bt:
+  hide_if_away: false
+  icon: mdi:cellphone-android
+  mac: !secret phone_carl_mac_bt
+  name: Pixel 2 XL
+  picture:
+  track: true
 
 maggie_pixel3:
   hide_if_away: false
@@ -11,3 +19,59 @@ maggie_pixel3:
   mac: !secret phone_maggie_mac
   name: Maggie's Pixel 3a
   track: true
+  
+bose_mini_soundlink:
+  hide_if_away: false
+  icon: mdi:speaker-bluetooth
+  mac: BT_00:0C:8A:88:FA:C4
+  name: Bose Mini
+  picture:
+  track: false
+
+butt_family_imac:
+  hide_if_away: false
+  icon:
+  mac: BT_A4:83:E7:46:70:A3
+  name: Butt Family iMac
+  picture:
+  track: false
+
+xbr_55x900f:
+  hide_if_away: false
+  icon:
+  mac: BT_DC:A2:66:58:36:C4
+  name: XBR-55X900F
+  picture:
+  track: false
+
+soundcore_liberty_air_2_l:
+  hide_if_away: false
+  icon:
+  mac: BT_98:52:3D:70:3A:34
+  name: Soundcore Liberty Air 2-L
+  picture:
+  track: false
+
+soundcore_liberty_air_2:
+  hide_if_away: false
+  icon:
+  mac: BT_98:52:3D:69:05:84
+  name: Soundcore Liberty Air 2
+  picture:
+  track: false
+
+vam_laptop:
+  hide_if_away: false
+  icon:
+  mac: BT_38:B1:DB:E3:5A:3E
+  name: VAM-LAPTOP
+  picture:
+  track: false
+
+bt_7c_64_56_b3_b0_c3:
+  hide_if_away: false
+  icon:
+  mac: BT_7C:64:56:B3:B0:C3
+  name: bt 7c 64 56 b3 b0 c3
+  picture:
+  track: false

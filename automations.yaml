@@ -1,0 +1,32 @@
+  - alias: 'Light on in the evening'
+    trigger:
+      - platform: sun
+        event: sunset
+        offset: '-01:00:00'
+      - platform: state
+        entity_id: person.carl, person.maggie
+        to: 'home'
+    condition:
+      - condition: time
+        after: '16:00:00'
+        before: '23:00:00'
+      - condition: state
+        entity_id: binary_sensor.everybody_home
+        state: 'off'
+    action:
+      - service: light.turn_on
+        entity_id: group.all_lights
+      - service: switch.turn_on
+        entity_id: group.all_lights
+
+# Turn off lights when everybody leaves the house
+  - alias: 'Away Mode'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.anybody_home
+        to: 'off'
+    action:
+      - service: light.turn_off
+        entity_id: group.all_lights
+      - service: switch.turn_off
+        entity_id: group.all_lights

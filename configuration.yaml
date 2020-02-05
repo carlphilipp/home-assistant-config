@@ -11,6 +11,15 @@ device_tracker:
     hosts:
       carl_pixel2: !secret ip_pixel2xl
       maggie_pixel3: !secret ip_pixel3a
+  - platform: bluetooth_tracker
+    interval_seconds: 30
+    new_device_defaults:
+      track_new_devices: false
+      hide_if_away: false
+#  - platform: bluetooth_le_tracker
+#    new_device_defaults:
+#      track_new_devices: false
+#      hide_if_away: false
 
 tuya:
   username: !secret tuya_username
@@ -57,41 +66,71 @@ sensor:
       - type: swap_use_percent
 
 binary_sensor:
+  - platform: template
+    sensors:
+      show_dyson:
+        friendly_name: Dyson API up
+        value_template: >-
+          {{ 
+          is_state('fan.master_bedroom', 'off')
+            or 
+          is_state('fan.master_bedroom', 'on')
+          }}
+  - platform: template
+    sensors:
+      everybody_home:
+        friendly_name: Everybody Home
+        value_template: >-
+          {{ 
+          is_state('person.maggie', 'home')
+            and 
+          is_state('person.carl', 'home')
+          }}
+  - platform: template
+    sensors:
+      anybody_home:
+        friendly_name: Anybody Home
+        value_template: >-
+          {{ 
+          is_state('person.maggie', 'home')
+            or 
+          is_state('person.carl', 'home')
+          }}
   - platform: ping
     name: Nas LS420D
     host: !secret ip_nas
     count: 2
-    scan_interval: 30
+    scan_interval: 60
   - platform: ping
     name: Raspberry Pi - Pi-hole
     host: !secret ip_raspberry_pi_pihole
     count: 2
-    scan_interval: 30
+    scan_interval: 60
   - platform: ping
     name: Raspberry Pi - PiVPN
     host: !secret ip_raspberry_pi_pivpn
     count: 2
-    scan_interval: 30
+    scan_interval: 60
   - platform: ping
     name: Roku
     host: !secret ip_roku
     count: 2
-    scan_interval: 30
+    scan_interval: 60
   - platform: ping
     name: Google Home
     host: !secret ip_google_home
     count: 2
-    scan_interval: 30
+    scan_interval: 60
   - platform: ping
     name: Chromecast
     host: !secret ip_chromecast
     count: 2
-    scan_interval: 30
+    scan_interval: 60
   - platform: ping
     name: Dyson fan
     host: !secret ip_dyson
     count: 2
-    scan_interval: 30
+    scan_interval: 60
 
 frontend:
   themes: !include_dir_merge_named themes/
@@ -99,7 +138,7 @@ frontend:
 weather:
   - platform: darksky
     api_key: !secret darksky_api_key
-    mode: hourly
+    mode: daily
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
@@ -116,3 +155,10 @@ group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
+
+logger:
+  default: warn
+  logs:
+    homeassistant.components.sensor.dyson: debug
+    homeassistant.components.fan.dyson: debug
+    homeassistant.components.dyson: debug
