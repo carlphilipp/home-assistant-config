@@ -75,3 +75,289 @@ bt_7c_64_56_b3_b0_c3:
   name: bt 7c 64 56 b3 b0 c3
   picture:
   track: false
+
+huawei_mate_30_pro:
+  hide_if_away: false
+  icon:
+  mac: BT_FC:94:35:C6:B7:28
+  name: HUAWEI Mate 30 Pro
+  picture:
+  track: false
+
+galaxy_s8:
+  hide_if_away: false
+  icon:
+  mac: BT_C8:D7:B0:6A:3B:B3
+  name: Galaxy S8
+  picture:
+  track: false
+
+lg_cm4550_80:
+  hide_if_away: false
+  icon:
+  mac: BT_08:EF:3B:E3:4E:80
+  name: LG CM4550(80)
+  picture:
+  track: false
+
+galaxy_note9:
+  hide_if_away: false
+  icon:
+  mac: BT_BC:A5:8B:9F:7A:FE
+  name: Galaxy Note9
+  picture:
+  track: false
+
+lg_hbs912:
+  hide_if_away: false
+  icon:
+  mac: BT_B8:AD:3E:FA:0C:12
+  name: LG HBS912
+  picture:
+  track: false
+
+tyras_iphone:
+  hide_if_away: false
+  icon:
+  mac: BT_E0:89:7E:99:21:EB
+  name: Tyra’s iPhone
+  picture:
+  track: false
+
+powerbeats_wireless:
+  hide_if_away: false
+  icon:
+  mac: BT_F0:18:98:E6:E5:DA
+  name: Powerbeats Wireless
+  picture:
+  track: false
+
+tzumi_soundmates:
+  hide_if_away: false
+  icon:
+  mac: BT_41:42:96:69:95:E6
+  name: Tzumi SoundMates
+  picture:
+  track: false
+
+oneplus_6t:
+  hide_if_away: false
+  icon:
+  mac: BT_64:A2:F9:E3:CC:12
+  name: OnePlus 6T
+  picture:
+  track: false
+
+desktop_6dl4s46:
+  hide_if_away: false
+  icon:
+  mac: BT_74:70:FD:18:E3:D0
+  name: DESKTOP-6DL4S46
+  picture:
+  track: false
+
+magic_keyboard_with_numeric_keypad:
+  hide_if_away: false
+  icon:
+  mac: BT_80:4A:14:6C:AD:E9
+  name: Magic Keyboard with Numeric Keypad
+  picture:
+  track: false
+
+tyra_s_oppo_r9sp:
+  hide_if_away: false
+  icon:
+  mac: BT_38:29:5A:A6:8E:72
+  name: Tyra's OPPO R9sP
+  picture:
+  track: false
+
+magic_trackpad_2:
+  hide_if_away: false
+  icon:
+  mac: BT_04:4B:ED:EB:CF:65
+  name: Magic Trackpad 2
+  picture:
+  track: false
+
+huawei_mate_30_pro_5g:
+  hide_if_away: false
+  icon:
+  mac: BT_F0:E4:A2:EA:11:91
+  name: HUAWEI Mate 30 Pro 5G
+  picture:
+  track: false
+
+jbl_tune600btnc:
+  hide_if_away: false
+  icon:
+  mac: BT_5C:FB:7C:F8:6A:51
+  name: JBL TUNE600BTNC
+  picture:
+  track: false
+
+iphone:
+  hide_if_away: false
+  icon:
+  mac: BT_80:B0:3D:89:85:FB
+  name: iPhone
+  picture:
+  track: false
+
+lian_xue:
+  hide_if_away: false
+  icon:
+  mac: BT_14:3C:C3:62:03:6A
+  name: 恋雪
+  picture:
+  track: false
+
+alexandras_macbook_air:
+  hide_if_away: false
+  icon:
+  mac: BT_C4:B3:01:9C:1F:65
+  name: Alexandra’s MacBook Air
+  picture:
+  track: false
+
+iphone_2:
+  hide_if_away: false
+  icon:
+  mac: BT_B0:70:2D:3B:F9:57
+  name: iPhone
+  picture:
+  track: false
+
+oneplus_7_pro:
+  hide_if_away: false
+  icon:
+  mac: BT_98:09:CF:90:B2:36
+  name: OnePlus 7 Pro
+  picture:
+  track: false
+
+v_iphone_5:
+  hide_if_away: false
+  icon:
+  mac: BT_9C:E3:3F:0E:61:26
+  name: (⊙v⊙)iPhone (5)
+  picture:
+  track: false
+
+hk_onyx_studio:
+  hide_if_away: false
+  icon:
+  mac: BT_0C:A6:94:1A:18:BD
+  name: HK Onyx Studio
+  picture:
+  track: false
+
+kaycee_collinss_mouse:
+  hide_if_away: false
+  icon:
+  mac: BT_B8:44:D9:EA:02:91
+  name: Kaycee Collins’s Mouse
+  picture:
+  track: false
+
+bose_color_ii_soundlink:
+  hide_if_away: false
+  icon:
+  mac: BT_04:52:C7:8D:6A:B5
+  name: Bose Color II SoundLink
+  picture:
+  track: false
+
+alexandra_lavalle_s_iphone:
+  hide_if_away: false
+  icon:
+  mac: BT_40:26:19:80:91:C9
+  name: Alexandra LaValle's iPhone
+  picture:
+  track: true
+
+bose_mini_soundlink_2:
+  hide_if_away: false
+  icon:
+  mac: BT_00:0C:8A:89:45:0F
+  name: Bose Mini SoundLink
+  picture:
+  track: false
+
+ipad_2:
+  hide_if_away: false
+  icon:
+  mac: BT_5C:AD:CF:C7:B3:BF
+  name: iPad 2
+  picture:
+  track: false
+
+setupf9ba0:
+  icon:
+  mac: BT_1C:F2:9A:8C:F9:B5
+  name: setupF9BA0
+  picture:
+  track: false
+
+av_samsung_soundbar_k550_k_series:
+  icon:
+  mac: BT_CC:B1:1A:30:BF:8C
+  name: '[AV] Samsung Soundbar K550 K-Series'
+  picture:
+  track: false
+
+echo_dot_8xv:
+  icon:
+  mac: BT_40:B4:CD:BD:A2:24
+  name: Echo Dot-8XV
+  picture:
+  track: false
+
+iphone_3:
+  icon:
+  mac: BT_D8:8F:76:F1:01:FB
+  name: iPhone
+  picture:
+  track: false
+
+zacharys_macbook_pro:
+  icon:
+  mac: BT_34:36:3B:C4:FE:B1
+  name: Zachary’s MacBook Pro
+  picture:
+  track: false
+
+raycon_e25_earbuds:
+  icon:
+  mac: BT_00:14:BE:31:9E:CE
+  name: Raycon E25 Earbuds
+  picture:
+  track: false
+
+iphone_4g:
+  icon:
+  mac: BT_D8:1C:79:89:D1:43
+  name: iPhone 4G
+  picture:
+  track: false
+
+dk_5cd7228l00:
+  icon:
+  mac: BT_14:AB:C5:B0:35:3C
+  name: DK-5CD7228L00
+  picture:
+  track: true
+
+matt_radleys_iphone:
+  icon:
+  mac: BT_44:4A:DB:04:29:FE
+  name: Matt Radley’s iPhone
+  picture:
+  track: true
+
+bh_m91:
+  icon:
+  mac: BT_00:6A:8E:90:04:68
+  name: BH-M91
+  picture:
+  track: true

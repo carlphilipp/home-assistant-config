@@ -5,7 +5,8 @@ person.maggie:
 
 media_player.roku_yf00ec953393:
   friendly_name: Roku
-
+media_player.living_room_speaker:
+  icon: mdi:mdi-google-home
 fan.master_bedroom:
   friendly_name: Master Bedroom fan
 
@@ -23,11 +24,56 @@ sensor.main_pi_hole_ads_percentage_blocked_today:
   friendly_name: Ads Percentage Blocked Today
 sensor.main_pi_hole_ads_blocked_today:
   friendly_name: Ads Blocked Today
+
+zwave.vision_security_zp3111_multisensor_4in1:
+  friendly_name: Monoprice 4in1
+sensor.vision_security_zp3111_multisensor_4in1_alarm_level:
+  friendly_name: Monoprice Alarm Level
+sensor.vision_security_zp3111_multisensor_4in1_alarm_type:
+  friendly_name: Monoprice Alarm Type
+sensor.vision_security_zp3111_multisensor_4in1_battery_level:
+  friendly_name: Monoprice Battery Level
+sensor.vision_security_zp3111_multisensor_4in1_burglar:
+  friendly_name: Monoprice Burglar
+sensor.vision_security_zp3111_multisensor_4in1_clock:
+  friendly_name: Monoprice Clock
+sensor.vision_security_zp3111_multisensor_4in1_emergency:
+  friendly_name: Monoprice Emergency
+sensor.vision_security_zp3111_multisensor_4in1_luminance:
+  friendly_name: Monoprice Luminance
+sensor.vision_security_zp3111_multisensor_4in1_power_management:
+  friendly_name: Monoprice Power Management
+sensor.vision_security_zp3111_multisensor_4in1_relative_humidity:
+  friendly_name: Monoprice Humidity
+  icon: mdi:water-percent
+
+binary_sensor.vision_security_zp3111_multisensor_4in1_sensor:
+  friendly_name: Monoprice 4in1 Sensor
+sensor.vision_security_zp3111_multisensor_4in1_sourcenodeid:
+  friendly_name: Monoprice Source node id
+sensor.vision_security_zp3111_multisensor_4in1_system:
+  friendly_name: Monoprice System
+sensor.vision_security_zp3111_multisensor_4in1_temperature:
+  friendly_name: Monoprice Temperature
+  
+switch.02200059ecfabc849dc9:
+  icon: mdi:lightbulb
+switch.zooz_zen25_s2_double_plug_switch:
+  icon: mdi:lightbulb
+  friendly_name: Bedroom lamp
+  
+group.living_room_lights:
+  icon: mdi:lightbulb
+group.all_lights:
+  icon: mdi:lightbulb
   
 device_tracker.bose_mini_soundlink:
   source_type: bluetooth
 device_tracker.forerunner_235:
   source_type: bluetooth
+  
+light.hue_ambiance_lamp_1:
+  icon: mdi:lightbulb
   
 sensor.bose_mini_online:
   icon: mdi:speaker-bluetooth

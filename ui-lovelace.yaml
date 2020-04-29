@@ -2,62 +2,230 @@ title: Home Assistant
 resources:
   - url: https://cdn.jsdelivr.net/gh/bramkragten/weather-card/dist/weather-card.min.js
     type: module
-  - url: /local/mini-graph-card-bundle.js?v=0.9.1
+  - url: /local/mini-graph-card-bundle.js?v=0.9.3
     type: module
-    
+  - url: /local/text-element.js?v=0
+    type: js
+  - url: /local/custom-header.js?v=0.0.1
+    type: module
+
+custom_header:
+  compact_mode: true
+
 views:
   - icon: mdi:home
     path: default_view
     title: Home
-#    badges:
-#      - entity: person.carl
-#      - entity: person.maggie
     cards:
       # Weather card
       - type: custom:weather-card
         entity: weather.dark_sky
-        name: Chicago
-      # Illinois card
-      - type: picture-glance
-        camera_image: camera.radar_il_current
+        #name: Chicago
+      - type: glance
+        title: Living
         entities:
-          - camera.radar_il_current
-       # Family card
+          - entity: sensor.vision_security_zp3111_multisensor_4in1_temperature
+            name: Temperature
+          - entity: sensor.vision_security_zp3111_multisensor_4in1_relative_humidity
+            name: Humidity
+          - entity: switch.02200059ecfabc849dc9
+            name: Main Light
+            tap_action:
+              action: toggle
+          - entity: light.hue_ambiance_lamp_1
+            name: HUE Light
+            tap_action:
+              action: toggle
+      - type: glance
+        title: Bedroom
+        entities:
+          - entity: sensor.master_bedroom_temperature
+            name: Temperature
+          - entity: sensor.master_bedroom_humidity
+            name: Humidity
+          - entity: switch.zooz_zen25_s2_double_plug_switch
+            name: Light
+            tap_action:
+              action: toggle
+          - entity: fan.master_bedroom
+            name: Fan
+            tap_action:
+              action: toggle
+
+      # Illinois card
+      - type: iframe
+        url: https://embed.windy.com/embed2.html?lat=41.459&lon=-87.671&zoom=7&level=surface&overlay=radar&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&detailLat=41.459&detailLon=-87.671&metricWind=default&metricTemp=default&radarRange=-1
+        aspect_ratio: 90%
+      # Family card
       - type: entities
         title: Family
         show_header_toggle: false
         entities:
           - entity: person.maggie
           - entity: person.carl
-      # Lights card
-      - type: entities
-        title: Lights
-        show_header_toggle: true
+      # Air quality
+      - type: picture-elements
+        image: /local/chicago-sunrise.jpg
+        elements:
+          - type: custom:text-element
+            text: "Air Quality"
+            style:
+              top: 15%
+              left: 40%
+              font-size: 1.7em
+              opacity: 1.0
+              color: white
+          - type: state-label
+            entity: sensor.chinese_air_quality_index
+            style:
+              top: 25%
+              left: 40%
+              opacity: 1.0
+              color: white
+
+  - icon: mdi:lightbulb
+    title: lights
+    cards:
+      - type: entity-button
+        title: All lights
+        entity: group.all_lights
+        icon_height: 100px
+      - type: glance
+        title: All lights details
         entities:
-          - entity: switch.02200059ecfabc849dc9
-          - entity: light.hue_ambiance_lamp_1
-      # HUE card
+          - switch.02200059ecfabc849dc9
+          - light.hue_ambiance_lamp_1
+          - switch.zooz_zen25_s2_double_plug_switch
       - type: light
         name: Hue lamp
         entity: light.hue_ambiance_lamp_1
-      # Bedroom card, around dyson sensors
-      - type: conditional
-        conditions:
-          - entity: binary_sensor.show_dyson
-            state: "on"
-        card:
-          type: entities
-          show_header_toggle: false
-          title: Bedroom
-          entities:
-          - entity: sensor.master_bedroom_temperature
-          - entity: sensor.master_bedroom_humidity
-          - entity: sensor.master_bedroom_aqi
-          - entity: sensor.master_bedroom_dust
-          - entity: fan.master_bedroom
-          - entity: sensor.master_bedroom_filter_life
+
+  - icon: mdi:flower
+    title: Plants
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: picture-elements
+            image: /local/hawa.jpg
+            elements:
+            # Title
+              - type: custom:text-element
+                text: "Hawaiian Tree"
+                tap_action:
+                  action: none
+                style:
+                  left: 0
+                  bottom: 0
+                  pointer-events: none
+                  font-size: 16px
+                  color: white
+                  background-color: rgba(0, 0, 0, 0.5)
+                  width: 100%
+                  transform: initial
+                  line-height: 60px
+                  padding: 0 16px
+              # Moisture
+              - type: state-label
+                entity: sensor.flower_1_moisture
+                style:
+                  bottom: 0px
+                  right: 3px
+                  pointer-events: none
+                  font-size: 14px
+                  transform: initial
+                  color: white
+              - type: icon
+                icon: mdi:water-percent
+                entity: sensor.flower_1_moisture
+                tap_action:
+                  action: more-info
+                style:
+                  bottom: 27px
+                  right: 15px
+                  transform: initial
+                  color: white
+              # Temperature
+              - type: state-label
+                entity: sensor.flower_1_temperature
+                style:
+                  bottom: 0px
+                  right: 50px
+                  pointer-events: none
+                  font-size: 14px
+                  transform: initial
+                  color: white
+              - type: icon
+                icon: mdi:thermometer
+                entity: sensor.flower_1_temperature
+                tap_action:
+                  action: more-info
+                style:
+                  bottom: 27px
+                  right: 68px
+                  transform: initial
+                  color: white
+          - type: picture-elements
+            image: /local/money-tree.png
+            elements:
+              # Title
+              - type: custom:text-element
+                text: "Money Tree"
+                tap_action:
+                    action: none
+                style:
+                   left: 0
+                   bottom: 0
+                   pointer-events: none
+                   font-size: 16px
+                   color: white
+                   background-color: rgba(0, 0, 0, 0.5)
+                   width: 100%
+                   transform: initial
+                   line-height: 60px
+                   padding: 0 16px
+          # Moisture
+              - type: state-label
+                entity: sensor.flower_2_moisture
+                style:
+                  bottom: 0px
+                  right: 3px
+                  pointer-events: none
+                  font-size: 14px
+                  transform: initial
+                  color: white
+              - type: icon
+                icon: mdi:water-percent
+                entity: sensor.flower_2_moisture
+                tap_action:
+                  action: more-info
+                style:
+                  bottom: 27px
+                  right: 15px
+                  transform: initial
+                  color: white
+              # Temperature
+              - type: state-label
+                entity: sensor.flower_2_temperature
+                style:
+                  bottom: 0px
+                  right: 50px
+                  pointer-events: none
+                  font-size: 14px
+                  transform: initial
+                  color: white
+              - type: icon
+                icon: mdi:thermometer
+                entity: sensor.flower_2_temperature
+                tap_action:
+                  action: more-info
+                style:
+                  bottom: 27px
+                  right: 68px
+                  transform: initial
+                  color: white
 
   - icon: mdi:play-network
+    title: Cast
     cards:
       - entity: media_player.roku_yf00ec953393
         type: media-control
@@ -65,11 +233,13 @@ views:
         type: media-control
       - entity: media_player.chromecarlst
         type: media-control
-  
+
   - icon: mdi:server-network
+    title: Network devices
     cards:
       - title: Devices
         type: entities
+        state_color: true
         show_header_toggle: false
         entities:
           - entity: device_tracker.carl_pixel2
@@ -82,7 +252,18 @@ views:
           - entity: binary_sensor.google_home
           - entity: binary_sensor.dyson_fan
 
+  - icon: mdi:script
+    title: Automation
+    cards:
+      - type: entities
+        title: Automation
+        show_header_toggle: false
+        entities:
+          - entity: automation.light_on_in_the_evening
+          - entity: automation.away_mode
+
   - icon: mdi:settings
+    title: Settings
     cards:
       - type: entities
         title: Home Assistant Stats
@@ -96,7 +277,7 @@ views:
       - type: custom:mini-graph-card
         name: Processor
         entities:
-          - sensor.processor_use
+          - sensor.disk_use_percent
       - type: custom:mini-graph-card
         name: Memory
         entities:
@@ -107,22 +288,39 @@ views:
         show_header_toggle: false
         title: Pi-hole
         type: entities
-        
-  - icon: mdi:alert-rhombus
-    cards:
-      - type: conditional
-        conditions:
-          - entity: binary_sensor.show_dyson
-            state: "off"
-        card:
-          type: entities
-          show_header_toggle: false
-          title: Bedroom
-          entities:
-          - entity: sensor.master_bedroom_temperature
-          - entity: sensor.master_bedroom_humidity
-          - entity: sensor.master_bedroom_aqi
-          - entity: sensor.master_bedroom_dust
+      - type: entities
+        show_header_toggle: false
+        title: Monoprice 4in1
+        entities:
+        - entity: binary_sensor.vision_security_zp3111_multisensor_4in1_sensor
+        - entity: sensor.vision_security_zp3111_multisensor_4in1_alarm_level
+        - entity: sensor.vision_security_zp3111_multisensor_4in1_alarm_type
+        - entity: sensor.vision_security_zp3111_multisensor_4in1_battery_level
+        - entity: sensor.vision_security_zp3111_multisensor_4in1_burglar
+        - entity: sensor.vision_security_zp3111_multisensor_4in1_clock
+        - entity: sensor.vision_security_zp3111_multisensor_4in1_emergency
+        - entity: sensor.vision_security_zp3111_multisensor_4in1_relative_humidity
+        - entity: sensor.vision_security_zp3111_multisensor_4in1_luminance
+        - entity: sensor.vision_security_zp3111_multisensor_4in1_power_management
+        - entity: sensor.vision_security_zp3111_multisensor_4in1_sourcenodeid
+        - entity: sensor.vision_security_zp3111_multisensor_4in1_system
+        - entity: sensor.vision_security_zp3111_multisensor_4in1_temperature
+      - type: entities
+        title: Plants
+        show_header_toggle: false
+        entities:
+          - entity: sensor.flower_1_temperature
+          - entity: sensor.flower_1_conductivity
+          - entity: sensor.flower_1_battery
+          - entity: sensor.flower_1_moisture
+          - entity: sensor.flower_1_light_intensity
+          - entity: sensor.flower_2_temperature
+          - entity: sensor.flower_2_conductivity
+          - entity: sensor.flower_2_battery
+          - entity: sensor.flower_2_moisture
+          - entity: sensor.flower_2_light_intensity
+      - type: entities
+        title: Dyson fan
+        show_header_toggle: false
+        entities:
           - entity: fan.master_bedroom
-          - entity: sensor.master_bedroom_filter_life
-

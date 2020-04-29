@@ -3,3 +3,10 @@ all_lights:
   entities:
     - light.hue_ambiance_lamp_1
     - switch.02200059ecfabc849dc9
+    - switch.zooz_zen25_s2_double_plug_switch
+
+living_room_lights:
+  name: Living room lights
+  entities:
+    - light.hue_ambiance_lamp_1
+    - switch.02200059ecfabc849dc9

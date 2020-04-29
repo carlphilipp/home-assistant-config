@@ -15,7 +15,6 @@ device_tracker:
     interval_seconds: 30
     new_device_defaults:
       track_new_devices: false
-      hide_if_away: false
 #  - platform: bluetooth_le_tracker
 #    new_device_defaults:
 #      track_new_devices: false
@@ -50,6 +49,15 @@ camera:
     still_image_url: https://s.w-x.co/staticmaps/wu/wu/wxtype1200_cur/usspi/current.png
     name: Radar IL Current
 
+airvisual:
+  api_key: !secret air_visual_key
+  geographies:
+    #latitude: !secret latitude
+    #longitude: !secret longitude
+    city: Chicago
+    state: Illinois
+    country: USA
+
 sensor:
   - platform: time_date
     display_options:
@@ -64,6 +72,40 @@ sensor:
       - type: memory_use_percent
       - type: swap_free
       - type: swap_use_percent
+  #- platform: airvisual
+#    api_key: !secret air_visual_key
+    #monitored_conditions:
+    #  - us
+    #show_on_map: false
+    #scan_interval: 300
+#    geographies:
+      #latitude: !secret latitude
+      #longitude: !secret longitude
+#      city: Chicago
+#      state: Illinois
+#      country: USA
+  - platform: miflora
+    mac: 'C4:7C:8D:66:D7:87'
+    name: Flower 1
+    force_update: true
+    median: 3
+    monitored_conditions:
+      - moisture
+      - light
+      - temperature
+      - conductivity
+      - battery
+  - platform: miflora
+    mac: 'C4:7C:8D:66:D7:A9'
+    name: Flower 2
+    force_update: true
+    median: 3
+    monitored_conditions:
+      - moisture
+      - light
+      - temperature
+      - conductivity
+      - battery
 
 binary_sensor:
   - platform: template
@@ -71,9 +113,9 @@ binary_sensor:
       show_dyson:
         friendly_name: Dyson API up
         value_template: >-
-          {{ 
+          {{
           is_state('fan.master_bedroom', 'off')
-            or 
+            or
           is_state('fan.master_bedroom', 'on')
           }}
   - platform: template
@@ -81,9 +123,9 @@ binary_sensor:
       everybody_home:
         friendly_name: Everybody Home
         value_template: >-
-          {{ 
+          {{
           is_state('person.maggie', 'home')
-            and 
+            and
           is_state('person.carl', 'home')
           }}
   - platform: template
@@ -91,9 +133,9 @@ binary_sensor:
       anybody_home:
         friendly_name: Anybody Home
         value_template: >-
-          {{ 
+          {{
           is_state('person.maggie', 'home')
-            or 
+            or
           is_state('person.carl', 'home')
           }}
   - platform: ping
@@ -134,7 +176,14 @@ binary_sensor:
 
 frontend:
   themes: !include_dir_merge_named themes/
-  
+
+zwave:
+ usb_path: /dev/ttyUSB0
+
+zha:
+ usb_path: /dev/ttyUSB1
+ database_path: /config/zigbee.db
+
 weather:
   - platform: darksky
     api_key: !secret darksky_api_key
@@ -157,8 +206,4 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 
 logger:
-  default: warn
-  logs:
-    homeassistant.components.sensor.dyson: debug
-    homeassistant.components.fan.dyson: debug
-    homeassistant.components.dyson: debug
+  default: info

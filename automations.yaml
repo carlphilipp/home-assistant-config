@@ -1,12 +1,13 @@
   - alias: 'Light on in the evening'
     trigger:
-      - platform: sun
-        event: sunset
-        offset: '-01:00:00'
       - platform: state
         entity_id: person.carl, person.maggie
+        from: 'not_home'
         to: 'home'
     condition:
+      - condition: sun
+        after: sunset
+        after_offset: "-01:00:00"
       - condition: time
         after: '16:00:00'
         before: '23:00:00'
@@ -15,9 +16,9 @@
         state: 'off'
     action:
       - service: light.turn_on
-        entity_id: group.all_lights
+        entity_id: group.living_room_lights
       - service: switch.turn_on
-        entity_id: group.all_lights
+        entity_id: group.living_room_lights
 
 # Turn off lights when everybody leaves the house
   - alias: 'Away Mode'
